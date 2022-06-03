@@ -1,61 +1,62 @@
-import React, { useState } from 'react'
-import { getAll } from '../helpers/getAll';
-import useGetallDigi from '../hooks/useGetallDigi';
-import GifContenedor from './GifContenedor';
+import React, { useState } from "react";
+import useGetallDigi from "../hooks/useGetallDigi";
 
-
-const AgregarBusqueda = ({setValoresBusqueda}) => {
-  const [valorBusqueda, setValorBusqueda] = useState('');
-  const { digi, cargando } = useGetallDigi()
-  
-  
+const AgregarBusqueda = ({ setValoresBusqueda }) => {
+  const [valorBusqueda, setValorBusqueda] = useState(0);
+  const { digi, cargando } = useGetallDigi();
 
   const handleChange = (e) => {
-    setValorBusqueda(e.target.value)
+    setValorBusqueda(e.target.value);
+  };
 
-  }
-
-  const envioBusqueda = async(e) => {
+  const envioBusqueda = async (e) => {
     e.preventDefault();
 
-    if(!valorBusqueda.trim().length>0){
-      alert('Debe rellenar el campo')
-      return
+    if (!valorBusqueda.trim().length > 0) {
+      alert("Debe rellenar el campo");
+      return;
     }
-    setValoresBusqueda(valor=>[valorBusqueda,...valor])
-    setValorBusqueda('')
-    
-  }
+    setValoresBusqueda((valor) => [valorBusqueda, ...valor]);
+    setValorBusqueda("");
+  };
 
   return (
     <>
       <form onSubmit={envioBusqueda}>
+        {/* 
         <input type="text"
           value={valorBusqueda}
           onChange={handleChange} />
-        {/* <button type='submit'>Buscar</button> */}
-      </form>
-    <p>{valorBusqueda}</p>
-
-    {cargando && <p>Cargando</p>}
-      <div className='card-grid animate__animated animate__bounceInUp'>
-
-       {  
-          digi.map((digi) => (
-            <ul>
-            <li>{digi.name}</li>
-            </ul>
-
-          ))
-        } 
-
-
-      </div>
-
-
+        { <button type='submit'>Buscar</button> }
       
-    </>
-  ) 
-}
+    <p>{valorBusqueda}</p> */}
+      <select
+        onChange={handleChange}
+        value={valorBusqueda}
+        className="form-select form-select-sm mb-2 mt-3"
+      >
+        <option key="0" value="0" disabled>
+          Seleccione 
+        </option>
+        {digi.map((digi) => (
+          <option key={digi.name} value={digi.name}>
+            {digi.name}
+          </option>
+        ))}
+      </select>
+      <button type='submit'>Buscar</button>
+      </form>
 
-export default AgregarBusqueda
+      {/* {cargando && <p>Cargando</p>}
+      <div className="card-grid animate__animated animate__bounceInUp">
+        {digi.map((digi) => (
+          <ul>
+            <li>{digi.name}</li>
+          </ul>
+        ))}
+      </div> */}
+    </>
+  );
+};
+
+export default AgregarBusqueda;
