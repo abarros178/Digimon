@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+#contenedor{
+  float:left;
+}
+
 body {
   padding: 60px;
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getGifs } from '../helpers/getGifs'
+import { saveBd } from '../helpers/saveBd';
 
 
 const useGetGifs = (valorBusqueda) => {
@@ -14,10 +15,11 @@ const useGetGifs = (valorBusqueda) => {
     useEffect(() => {
         getGifs(valorBusqueda)
             .then((imgs) => {
+                saveBd({valorBusqueda,imgs})
                 setEstado({
                     digi: imgs,
                     cargando: false,
-                });
+                }); 
             })
 
     }, [])
