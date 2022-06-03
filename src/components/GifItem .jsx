@@ -1,9 +1,9 @@
 import React from 'react'
 
-const GifItem = ({title, url}) => {
+const GifItem = ({name, img}) => {
   return (
     <div className='card animate__animated animate__fadeInDown'>
-        <img src={url} alt = {title}/>
+        <img src={img} alt = {name}/>
     </div>
   )
 }

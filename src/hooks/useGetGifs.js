@@ -5,7 +5,7 @@ import { getGifs } from '../helpers/getGifs'
 const useGetGifs = (valorBusqueda) => {
 
     const [estado, setEstado] = useState({
-        gifs: [],
+        digi: [],
         cargando: true,
     });
 
@@ -15,7 +15,7 @@ const useGetGifs = (valorBusqueda) => {
         getGifs(valorBusqueda)
             .then((imgs) => {
                 setEstado({
-                    gifs: imgs,
+                    digi: imgs,
                     cargando: false,
                 });
             })

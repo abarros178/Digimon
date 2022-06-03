@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import AgregarBusqueda from './AgregarBusqueda'
 import GifContenedor from './GifContenedor'
 
-const GifApp = ({busqueda=['simpson']}) => {
+const GifApp = ({busqueda=['Koromon']}) => {
   const [valoresBusqueda, setValoresBusqueda] = useState(busqueda)
   useEffect(() => {
     console.log(valoresBusqueda);
@@ -18,7 +18,7 @@ const GifApp = ({busqueda=['simpson']}) => {
         {
           valoresBusqueda.map((valorBusqueda,index) => (
             <GifContenedor
-              key={valoresBusqueda.indexOf(valorBusqueda)===-1 ? valoresBusqueda:`${index}${valorBusqueda}`}
+              key={`${index}${valorBusqueda}`}
               valorBusqueda={valorBusqueda}
             />
           ))

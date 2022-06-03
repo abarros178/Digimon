@@ -3,7 +3,7 @@ import GifItem from './GifItem ';
 import useGetGifs from '../hooks/useGetGifs';
 
 const GifContenedor = ({ valorBusqueda }) => {
-  const { gifs, cargando } = useGetGifs(valorBusqueda)
+  const { digi, cargando } = useGetGifs(valorBusqueda)
 
   return (
     <>
@@ -12,9 +12,9 @@ const GifContenedor = ({ valorBusqueda }) => {
       <div className='card-grid animate__animated animate__bounceInUp'>
 
         {
-          gifs.map((gif) => (
+          digi.map((gif) => (
             <GifItem
-              key={gif.id}
+              key={gif.name}
               {...gif} />
 
           ))
