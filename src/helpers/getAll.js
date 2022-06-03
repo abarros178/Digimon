@@ -1,9 +1,9 @@
-export const getGifs = async(valorBusqueda) => {
-    const url = `https://digimon-api.vercel.app/api/digimon/name/${valorBusqueda}`;
+export const getAll = async() => {
+    const url = `https://digimon-api.vercel.app/api/digimon`;
     const response = await fetch(url);
     
-    const digiuwu = await response.json();
-    
+    const digi = await response.json();
+      
    /*  const gifs = data.map(({id,title,images:{downsized_medium:{url}}}) => {
         return {
             id,
@@ -12,9 +12,5 @@ export const getGifs = async(valorBusqueda) => {
         }
     })
     /* console.log(gifs) */
-    return digiuwu
+    return digi
 }
-
-
-
-
