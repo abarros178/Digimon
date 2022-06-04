@@ -3,6 +3,6 @@ import { collection,addDoc,deleteDoc,doc,updateDoc} from 'firebase/firestore/lit
 
 
 export const borrarDB = async (id) => {
-    //await updateDoc(doc(db,'digimon',id),{valorBusqueda:"la fefgefgegfeg"})
+    
     await deleteDoc(doc(db,'digimon',id))
 }

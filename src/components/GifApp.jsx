@@ -6,6 +6,7 @@ import GifContenedor from './GifContenedor'
 
 const GifApp = ({ busqueda = [] }) => {
   const [controlDB, setControlDB] = useState(false)
+  
 
   const [valoresBusqueda, setValoresBusqueda] = useState(busqueda)
   const { arrayData, cargando } = useGetDataBase(controlDB, setControlDB)
