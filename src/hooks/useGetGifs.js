@@ -1,30 +1,31 @@
-import { useEffect, useState } from 'react'
-import { getGifs } from '../helpers/getGifs'
-import { saveBd } from '../helpers/saveBd';
+import { useEffect, useState } from "react";
+import getFirebase from "../helpers/getFirebase";
+import { getGifs } from "../helpers/getGifs";
+import { saveBd } from "../helpers/saveBd";
 
-
-const useGetGifs = (valorBusqueda) => {
-
-    const [estado, setEstado] = useState({
-        digi: [],
-        cargando: true,
-    });
-
+const useGetGifs = (valorBusqueda, arrayData = [],setControlDB) => {
+  const aux = arrayData.filter((item) => item.valorBusqueda === valorBusqueda);
     
+  const [estado, setEstado] = useState({
+    digi: [],
+    cargando: true,
+  });
 
-    useEffect(() => {
-        getGifs(valorBusqueda)
-            .then((imgs) => {
-                saveBd({valorBusqueda,imgs})
-                setEstado({
-                    digi: imgs,
-                    cargando: false,
-                }); 
-            })
+  useEffect(() => {
+    getGifs(valorBusqueda).then((imgs) => {
+      if (aux.length === 0) {
+        setControlDB(true)
+        saveBd({ valorBusqueda, imgs });
+        setEstado({
+          digi: imgs,
+          cargando: false,
+        });
+      } else {
+        alert("Eso existed");
+      }
+    });
+  }, [valorBusqueda]);
+  return estado;
+};
 
-    }, [])
-    return estado;
-
-}
-
-export default useGetGifs
+export default useGetGifs;
