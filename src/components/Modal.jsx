@@ -1,6 +1,6 @@
 import { UpdateDB } from '../helpers/UpdateDB';
 import React, { useState } from 'react'
-import useGetallDigi from '../hooks/useGetallDigi';
+
 
 const Modal = ({ valorBusqueda, id, imgs, setmodeedition ,setControlDB}) => {
     const [valorBusquedainput, setValorBusquedainput] = useState('');
@@ -33,10 +33,11 @@ const Modal = ({ valorBusqueda, id, imgs, setmodeedition ,setControlDB}) => {
 
     return (
         <div>{
-            <div className="modal" tabIndex="-1" style={{ display: 'block' }}>
+            <div id='modal'
+            className="modal" tabIndex="-1" style={{ "display": "block"}}>
 
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content rounded-0" >
                         <div className="modal-header">
                             <h5 className="modal-title">Editar estudiante</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={cerrar}></button>

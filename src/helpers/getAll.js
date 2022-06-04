@@ -4,13 +4,13 @@ export const getAll = async() => {
     
     const digi = await response.json();
       
-   /*  const gifs = data.map(({id,title,images:{downsized_medium:{url}}}) => {
+   /*  const digis = data.map(({id,title,images:{downsized_medium:{url}}}) => {
         return {
             id,
             title,
             url
         }
     })
-    /* console.log(gifs) */
+    /* console.log(digis) */
     return digi
 }

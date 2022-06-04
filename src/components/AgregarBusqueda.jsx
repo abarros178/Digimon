@@ -3,7 +3,7 @@ import useGetallDigi from "../hooks/useGetallDigi";
 
 const AgregarBusqueda = ({ setValoresBusqueda }) => {
   const [valorBusqueda, setValorBusqueda] = useState(0);
-  const { digi, cargando } = useGetallDigi();
+  const { digi } = useGetallDigi();
 
   const handleChange = (e) => {
     setValorBusqueda(e.target.value);
@@ -22,7 +22,7 @@ const AgregarBusqueda = ({ setValoresBusqueda }) => {
 
   return (
     <>
-      <form onSubmit={envioBusqueda}>
+      <form onSubmit={envioBusqueda} className='animate__animated animate__backInDown'>
         {/* 
         <input type="text"
           value={valorBusqueda}
@@ -44,7 +44,7 @@ const AgregarBusqueda = ({ setValoresBusqueda }) => {
           </option>
         ))}
       </select>
-      <button type='submit'>Buscar</button>
+      <button className="btn btn-primary btn-block" type='submit'>Buscar</button>
       </form>
 
       {/* {cargando && <p>Cargando</p>}

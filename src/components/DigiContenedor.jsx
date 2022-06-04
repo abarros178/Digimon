@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import GifItem from './GifItem ';
-import useGetGifs from '../hooks/useGetGifs';
-import getFirebase from '../helpers/getFirebase';
+import React from 'react'
 
-const GifContenedor = ({ valorBusqueda,arrayData,setControlDB }) => {
+import useGetGifs from '../hooks/useGetGifs';
+
+
+const DigiContenedor = ({ valorBusqueda,arrayData,setControlDB }) => {
   useGetGifs(valorBusqueda,arrayData,setControlDB)
 
   return (
@@ -14,11 +14,11 @@ const GifContenedor = ({ valorBusqueda,arrayData,setControlDB }) => {
 
         {
 
-          digi?.map((gif) => (
+          digi?.map((digi) => (
             <div id='contenedor2' className="card-group" style={{ "width": "15rem" }}>
-            <GifItem
-              key={gif.name}
-              {...gif} />
+            <DigiItem
+              key={digi.name}
+              {...digi} />
             </div>      
           ))
         }
@@ -29,4 +29,4 @@ const GifContenedor = ({ valorBusqueda,arrayData,setControlDB }) => {
   )
 }
 
-export default GifContenedor;
+export default DigiContenedor;

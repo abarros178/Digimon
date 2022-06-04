@@ -1,7 +1,6 @@
-import { updateDoc } from 'firebase/firestore/lite';
 import React, { useState } from 'react'
 import { borrarDB } from '../helpers/borrarDB';
-import GifItem from './GifItem ';
+import DigiItem from './DigiItem.jsx';
 import Modal from './Modal.jsx';
 
 const ContenedorBD = ({ imgs, id, setControlDB, valorBusqueda }) => {
@@ -13,10 +12,7 @@ const ContenedorBD = ({ imgs, id, setControlDB, valorBusqueda }) => {
     setControlDB(true)
     console.log(id);
   }
-  const editar=()=>{
-    setmodeedition(`true`)
-    console.log(modeedition)
-  }
+
 
 
 
@@ -26,13 +22,12 @@ const ContenedorBD = ({ imgs, id, setControlDB, valorBusqueda }) => {
 
         imgs.map(item => (
           <div className="card-group" style={{ "width": "15rem" }} key={item.name}>
-            <GifItem {...item} eliminar={eliminar} valorBusqueda={valorBusqueda} setmodeedition={setmodeedition} />
+            <DigiItem {...item} eliminar={eliminar} valorBusqueda={valorBusqueda} setmodeedition={setmodeedition} />
           </div>
 
         ))
 
       }
-      <button onClick={() => editar()}>Editar</button>
       {
         modeedition ? (<Modal id={id} img={imgs} valorBusqueda={valorBusqueda} setmodeedition 
           ={setmodeedition} setControlDB={setControlDB}/>) : <>

@@ -1,12 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import GifApp from './components/GifApp';
+import DigiApp from './components/DigiApp';
 
 function App() {
   return (
    
     <>
-    <GifApp/>
+    <DigiApp/>
     </>
   );
 }

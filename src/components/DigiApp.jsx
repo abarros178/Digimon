@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import useGetDataBase from '../hooks/useGetFirebase'
 import AgregarBusqueda from './AgregarBusqueda'
 import ContenedorBD from './ContenedorBD'
-import GifContenedor from './GifContenedor'
+import DigiContenedor from './DigiContenedor.jsx'
 
-const GifApp = ({ busqueda = [] }) => {
+const DigiApp = ({ busqueda = [] }) => {
   const [controlDB, setControlDB] = useState(false)
   
 
   const [valoresBusqueda, setValoresBusqueda] = useState(busqueda)
-  const { arrayData, cargando } = useGetDataBase(controlDB, setControlDB)
+  const { arrayData } = useGetDataBase(controlDB, setControlDB)
   useEffect(() => {
     console.log(valoresBusqueda);
 
@@ -17,14 +17,14 @@ const GifApp = ({ busqueda = [] }) => {
 
   return (
     <>
-      <div className='container'>
-        <h2>Aplicacion de Gifs</h2>
+      <div className='container animate__animated animate__backInDown'>
+        <h2>Aplicacion de Digimones</h2>
         <AgregarBusqueda setValoresBusqueda={setValoresBusqueda} />
         <hr />
         <ol>
           {
             valoresBusqueda.map((valorBusqueda) => (
-              <GifContenedor
+              <DigiContenedor
                 key={valorBusqueda}
                 valorBusqueda={valorBusqueda}
                 arrayData={arrayData}
@@ -46,4 +46,4 @@ const GifApp = ({ busqueda = [] }) => {
   )
 }
 
-export default GifApp
+export default DigiApp

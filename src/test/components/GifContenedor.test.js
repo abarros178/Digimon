@@ -1,12 +1,12 @@
 //cuando hay hooks lo que tenemos que hacer es simular la respuesta de ese hook.
 import {shallow} from 'enzyme'
 import '@testing-library/jest-dom';
-import GifContenedor from '../../components/GifContenedor.jsx'
+import DigiContenedor from '../../components/DigiContenedor.jsx'
 import useGetGifs from '../../components/hooks/useGetGifs';
 jest.mock('../../components/hooks/useGetGifs');
 
 
-describe('Pruebas en <GifContenedor/>',() => {
+describe('Pruebas en <DigiContenedor/>',() => {
 
     
     test('debe mostrar los gifs al cargar el hook', () =>{
@@ -35,7 +35,7 @@ describe('Pruebas en <GifContenedor/>',() => {
         })
     
         const valorBusqueda = 'simpson';
-        const wrapper = shallow( <GifContenedor valorBusqueda={valorBusqueda}/>);
+        const wrapper = shallow( <DigiContenedor valorBusqueda={valorBusqueda}/>);
 
         expect(wrapper.find('p').exists()).toBe(false)
 
@@ -51,12 +51,12 @@ describe('Pruebas en <GifContenedor/>',() => {
         })
     
         const valorBusqueda = 'simpson';
-        const wrapper = shallow( <GifContenedor valorBusqueda={valorBusqueda}/>);
+        const wrapper = shallow( <DigiContenedor valorBusqueda={valorBusqueda}/>);
 
         expect(wrapper.find('p').exists()).toBe(true)
 
     });
-    test('la cantida de elementos GifItem coincide con el numero de resultados', () =>{
+    test('la cantida de elementos DigiItem coincide con el numero de resultados', () =>{
 
         const gifs = [
             {
@@ -82,9 +82,9 @@ describe('Pruebas en <GifContenedor/>',() => {
         })
     
         const valorBusqueda = 'simpson';
-        const wrapper = shallow( <GifContenedor valorBusqueda={valorBusqueda}/>);
+        const wrapper = shallow( <DigiContenedor valorBusqueda={valorBusqueda}/>);
 
-        expect(wrapper.find('GifItem').length).toBe(3)
+        expect(wrapper.find('DigiItem').length).toBe(3)
 
     });
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GifItem = ({ valorBusqueda,name, img, level ,eliminar,id,setmodeedition}) => {
+const DigiItem = ({ valorBusqueda,name, img, level ,eliminar,id,setmodeedition}) => {
   const cerrar=()=>{
     setmodeedition(true)
 }
@@ -12,8 +12,8 @@ const GifItem = ({ valorBusqueda,name, img, level ,eliminar,id,setmodeedition}) 
         <div className="card-body">
           <h5 className="card-title">{valorBusqueda}</h5>
           <p>El level es: {level}</p>
-          <button onClick={() => eliminar()} className='btn btn-danger'>Eliminar</button>
-          <button onClick={() => cerrar()} className='btn btn-warning'>Editar</button>
+          <button onClick={() => eliminar()} className='btn btn-danger m-1'>Eliminar</button>
+          <button onClick={() => cerrar()} className='btn btn-warning m-1'>Editar</button>
         </div>
       </div>
     </div>
@@ -26,4 +26,4 @@ const GifItem = ({ valorBusqueda,name, img, level ,eliminar,id,setmodeedition}) 
   )
 }
 
-export default GifItem    
+export default DigiItem    
