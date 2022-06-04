@@ -27,6 +27,7 @@ const Modal = ({ valorBusqueda, id, imgs, setmodeedition ,setControlDB}) => {
         UpdateDB(id,{valorBusqueda:valorBusquedainput}).then(()=>console.log('i am here'))
         setValorBusquedainput("");
         setControlDB(true)
+        cerrar()
     };
 
 
@@ -49,7 +50,7 @@ const Modal = ({ valorBusqueda, id, imgs, setmodeedition ,setControlDB}) => {
                                
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={cerrar}>Close</button>
-                                    <button type="submit" className="btn btn-primary" onClick={cerrar}>Save changes</button>
+                                    <button type="submit" className="btn btn-primary" >Save changes</button>
                                 </div>
                             </form>
                     </div>
