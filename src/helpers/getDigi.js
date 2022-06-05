@@ -1,4 +1,4 @@
-export const getGifs = async(valorBusqueda) => {
+export const getDigi = async(valorBusqueda) => {
     const url = `https://digimon-api.vercel.app/api/digimon/name/${valorBusqueda}`;
     const response = await fetch(url);
     

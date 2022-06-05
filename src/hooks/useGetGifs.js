@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import getFirebase from "../helpers/getFirebase";
-import { getGifs } from "../helpers/getGifs";
+import { getDigi } from "../helpers/getDigi";
 import { saveBd } from "../helpers/saveBd";
 
 const useGetGifs = (valorBusqueda, arrayData = [],setControlDB) => {
@@ -12,7 +12,7 @@ const useGetGifs = (valorBusqueda, arrayData = [],setControlDB) => {
   });
 
   useEffect(() => {
-    getGifs(valorBusqueda).then((imgs) => {
+    getDigi(valorBusqueda).then((imgs) => {
       if (aux.length === 0) {
         setControlDB(true)
         saveBd({ valorBusqueda, imgs });

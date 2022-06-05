@@ -1,5 +1,5 @@
 import GifApp from '../../components/GifApp';
-import {getGifs} from '../../helpers/getGifs'
+import {getDigi} from '../../helpers/getDigi'
 import { shallow } from 'enzyme'
 import DigiContenedor from '../../components/DigiContenedor';
 
